@@ -16,12 +16,17 @@ import filesize from 'rollup-plugin-filesize';
 import {terser} from 'rollup-plugin-terser';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import typescript from '@rollup/plugin-typescript';
+
+
 
 export default {
-  input: 'my-element.js',
+  input: 'src/index.ts',
   output: {
-    file: 'my-element.bundled.js',
-    format: 'esm',
+    // file: 'my-element.bundled.js',
+    dir: 'build',
+    format: 'cjs',
+    sourcemap: true
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -29,6 +34,7 @@ export default {
     }
   },
   plugins: [
+    typescript(),
     replace({'Reflect.decorate': 'undefined'}),
     resolve(),
     terser({
