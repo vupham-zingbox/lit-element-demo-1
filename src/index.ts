@@ -1,0 +1,1 @@
+export { MyElement } from './elements/my-element/my-element';
