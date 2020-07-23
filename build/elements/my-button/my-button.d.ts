@@ -6,6 +6,7 @@ export declare class MyButton extends LitElement {
      */
     text: string;
     render(): import("lit-element").TemplateResult;
+    updated(changedProperties: any): void;
     private _onClick;
 }
 declare global {
