@@ -3,7 +3,7 @@
   "tags": [
     {
       "name": "my-element",
-      "path": "./src/my-element.ts",
+      "path": "./src/elements/my-element/my-element.ts",
       "description": "An example element.",
       "attributes": [
         {
@@ -45,6 +45,27 @@
         {
           "name": "button",
           "description": "The button"
+        }
+      ]
+    },
+    {
+      "name": "my-button",
+      "path": "./src/elements/my-button/my-button.ts",
+      "attributes": [
+        {
+          "name": "text",
+          "description": "The name to say \"Hello\" to.",
+          "type": "string",
+          "default": "\"\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "text",
+          "attribute": "text",
+          "description": "The name to say \"Hello\" to.",
+          "type": "string",
+          "default": "\"\""
         }
       ]
     }

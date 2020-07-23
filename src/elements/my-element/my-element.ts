@@ -57,9 +57,6 @@ export class MyElement extends LitElement {
     this.count++;
   }
 
-  foo(): string {
-    return 'foo';
-  }
 }
 
 declare global {

@@ -30,7 +30,6 @@ export declare class MyElement extends LitElement {
     count: number;
     render(): import("lit-element").TemplateResult;
     private _onClick;
-    foo(): string;
 }
 declare global {
     interface HTMLElementTagNameMap {
