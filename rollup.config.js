@@ -23,7 +23,6 @@ import typescript from '@rollup/plugin-typescript';
 export default {
   input: 'src/index.ts',
   output: {
-    // file: 'my-element.bundled.js',
     dir: 'build',
     format: 'cjs',
     sourcemap: true

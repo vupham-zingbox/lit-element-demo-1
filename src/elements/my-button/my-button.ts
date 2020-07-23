@@ -1,5 +1,5 @@
 
-import { LitElement, html, customElement, property, css } from 'lit-element';
+import { LitElement, html, customElement, property, css, internalProperty } from 'lit-element';
 
 @customElement('my-button')
 export class MyButton extends LitElement {
@@ -22,6 +22,8 @@ export class MyButton extends LitElement {
   @property()
   text = '';
 
+  @internalProperty()
+  private _innerText = '';
 
   render() {
     return html`
@@ -29,19 +31,31 @@ export class MyButton extends LitElement {
         ${this.text}
       </button>
       <span>
-
+        ${this._innerText}
       </span>
     `;
   }
 
+  attributeChangedCallback(changed: any) {
+
+    console.log('r', changed);
+
+  }
+
+  update(changedProperties: any) {
+
+    console.log('update', changedProperties);
+
+  }
+
   updated(changedProperties: any) {
 
-    console.log(changedProperties);
-    
+    console.log('updated', changedProperties);
+
   }
 
   private _onClick() {
-    let myEvent = new CustomEvent('my-button-event', {
+    let myEvent = new CustomEvent('that-click', {
       detail: { message: 'my-event happened.' },
       bubbles: true,
       composed: true
