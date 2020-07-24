@@ -4,11 +4,8 @@ export declare class MyButton extends LitElement {
     /**
      * The name to say "Hello" to.
      */
-    text: string;
-    foo: string;
+    isDark: boolean;
     render(): import("lit-element").TemplateResult;
-    update(changedProperties: any): void;
-    updated(changedProperties: any): void;
     private _onClick;
 }
 declare global {

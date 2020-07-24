@@ -1,5 +1,5 @@
 
-import { LitElement, html, customElement, property, css, internalProperty } from 'lit-element';
+import { LitElement, html, customElement, property, css } from 'lit-element';
 
 @customElement('my-button')
 export class MyButton extends LitElement {
@@ -9,49 +9,42 @@ export class MyButton extends LitElement {
     }
 
     button {
-      padding: 5px;
-      border-radius: 5px;
-      background: green;
+      height: 36px;
+      border-radius: 18px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      background: white;
+      border: 1px solid red;
+      color: red;
+      outline:none;
+    }
+
+    button.dark {
+      background: #ccc;
       color: white;
+      background: white;
+    }
+
+    button:hover {
+      cursor: pointer;
     }
   `;
 
   /**
    * The name to say "Hello" to.
    */
-  @property()
-  text = '';
-
-  @internalProperty()
-  private _innerText = '';
+  @property({
+    type: Boolean
+  })
+  isDark = false;
 
   render() {
     return html`
       <button @click=${this._onClick}>
-        ${this.text}
+        Switch to ${this.isDark ? 'blue' : 'red'}
       </button>
-      <span>
-        ${this._innerText}
-      </span>
     `;
-  }
-
-  attributeChangedCallback(changed: any) {
-
-    console.log('r', changed);
-
-  }
-
-  update(changedProperties: any) {
-
-    console.log('update', changedProperties);
-
-  }
-
-  updated(changedProperties: any) {
-
-    console.log('updated', changedProperties);
-
   }
 
   private _onClick() {
@@ -64,7 +57,6 @@ export class MyButton extends LitElement {
   }
 
 }
-
 declare global {
   interface HTMLElementTagNameMap {
     'my-button': MyButton;
